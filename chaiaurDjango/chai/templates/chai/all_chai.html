@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home page
+{% endblock %}
+
+{% block content %}
+
+<h1 class='text-white font-bold text-[2rem]'>All chai for you</h1>
+
+<div class='grid grid-cols-3 gap-4 m-4 '>
+
+{% for chai in chais  %}
+<div class='chai-item bg-blue-400  p-5 rounded-xl shadow-lg'>
+  <img class='rounded ' src="{{chai.image.url}}" alt="">
+  <h1 class='text-2xl font-bold text-white'>{{chai.name}}</h1>
+  <a href="{% url 'chai_detail' chai.id %}">
+    <button type='button' class='inline-flex items-center justify-center px-4 py-2 w-[100%] border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500'>
+      {{chai.type}} - {{chai.id}}
+    </button>
+  </a>
+</div>
+
+
+{% endfor %}
+</div>
+
+{% endblock %}
+
