@@ -14,3 +14,8 @@ def chai_detail(request, chai_id):
     'chai':chai
   })
 
+def chai_store_view(request):
+  chais = ChaiVarity.objects.all()
+  return render(request,'chai/chai_stores.html',{
+    'chais':chais
+  })
